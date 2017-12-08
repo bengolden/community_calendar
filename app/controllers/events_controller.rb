@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    @events = Event.all
+    @events = Event.starts_after(Time.now)
   end
 
   def create
