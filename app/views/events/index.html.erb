@@ -1,0 +1,18 @@
+<div class="row">
+  <%= link_to "New Event",
+                "#",
+                data: { toggle: "modal", target: "#new-event-modal" },
+                id: "new-event-button",
+                class: "btn btn-primary" if can_add_new_events? %>
+</div>
+
+
+<div class="row">
+  <div id="calendar-area" class="col-md-8">
+    Calendar area (not yet built)
+  </div>
+
+  <%= render "sidebar" if show_sidebar? %>
+</div>
+
+<%= render "new_event_modal" if can_add_new_events? %>

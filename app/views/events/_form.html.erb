@@ -1,0 +1,13 @@
+<%= simple_form_for @event do |f| %>
+  <%= f.input :name %>
+  <%= f.input :organization_name %>
+  <%= f.input :description %>
+  <%= f.input :venue_name %>
+  <%= f.input :venue_address %>
+  <%= f.input :contact_information %>
+  <%= f.input :event_at, as: :datetime %>
+
+  <div>
+    <%= f.submit nil, class: "btn btn-primary" %>
+  </div>
+<% end %>
