@@ -17,7 +17,7 @@
 class Event < ApplicationRecord
 
   scope :for_date, ->(date){ where("DATE(event_at) = ?", date)}
-  scope :starts_after, ->(datetime){ where(event_at >= ?, datetime)}
+  scope :starts_after, ->(datetime){ where("event_at >= ?", datetime) }
 
   def self.event_dates
     pluck("DATE(event_at)").uniq.sort
