@@ -7,10 +7,7 @@
                   class: "btn btn-primary" if can_add_new_events? %>
   </div>
   <div class="row">
-    <div id="calendar-area" class="col-md-8">
-      Calendar area (not yet built)
-    </div>
-
+    <%= render "calendar" if show_calendar? %>
     <%= render "sidebar" if show_sidebar? %>
   </div>
 </div>

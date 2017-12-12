@@ -1,0 +1,6 @@
+<div class="month">
+  <h2><%= time.strftime("%B") %></h2>
+  <% weeks_remaining_in_month(time).each do |week| %>
+    <%= render "events/calendar/week", week: week, month: time %>
+  <% end %>
+</div>

@@ -1,0 +1,5 @@
+<div id="calendar-area" class="col-md-8">
+  <%= render "events/calendar/month", time: Time.now %>
+  <%= render "events/calendar/month", time: 1.month.from_now.beginning_of_month %>
+  <%= render "events/calendar/month", time: 2.months.from_now.beginning_of_month %>
+</div>

@@ -1,0 +1,40 @@
+#calendar-area{
+  .day{
+    float: left;
+    width: 100px;
+    height: 100px;
+    border-left: 1px solid darkgray;
+    border-top: 1px solid darkgray;
+    padding: 3px;
+
+    .event-count{
+      padding-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .invalid-day{
+    background-color: darkgray;
+    color: white;
+  }
+
+  .day:last-of-type{
+    border-right: 1px solid darkgray;
+  }
+
+  .week:last-of-type .day{
+    border-bottom: 1px solid darkgray;
+  }
+
+  .month{
+    padding-left: 50px;
+    h2{
+      text-align: center
+    }
+  }
+
+  h2{
+    padding-bottom: 15px;
+  }
+}
