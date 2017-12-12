@@ -6,12 +6,19 @@
     border-left: 1px solid darkgray;
     border-top: 1px solid darkgray;
     padding: 3px;
+    font-weight: bold;
 
     .event-count{
-      padding-top: 15px;
-      font-weight: bold;
+      padding-top: 20px;
       text-align: center;
     }
+  }
+
+  .day-of-week{
+    width: 100px;
+    font-weight: bold;
+    float: left;
+    text-align: center;
   }
 
   .invalid-day{

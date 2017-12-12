@@ -1,5 +1,13 @@
 <div class="month">
   <h2><%= time.strftime("%B") %></h2>
+  <div class="row">
+    <% (0..7).each do |day_of_week| %>
+      <div class="day-of-week">
+        <%= Date::DAYNAMES[day_of_week] %>
+      </div>
+    <% end %>
+  </div>
+
   <% weeks_remaining_in_month(time).each do |week| %>
     <%= render "events/calendar/week", week: week, month: time %>
   <% end %>
