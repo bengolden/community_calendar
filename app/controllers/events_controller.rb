@@ -5,6 +5,10 @@ class EventsController < ApplicationController
     @events = Event.starts_after(Time.now)
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def create
     event = Event.new(event_params)
     event.save
@@ -14,7 +18,11 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :organization_name, :description, :event_at, :venue_name, :venue_address, :contact_information)
+    fields = [
+      :title, :description, :event_at, :venue_name, :venue_address, :venue_url,
+      :sponsor_name, :sponsor_url, :tickets_price, :tickets_details, :tickets_url
+    ]
+    params.require(:event).permit(fields)
   end
 
 end

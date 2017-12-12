@@ -1,1 +1,3 @@
-<li class="event"><%= event.name %> (<%= time_format(event.event_at) %>)</li>
+<li class="event">
+  <%= link_to event.title, event %> (<%= time_format(event.event_at) %>)
+</li>

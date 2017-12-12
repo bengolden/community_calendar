@@ -1,11 +1,24 @@
 <%= simple_form_for @event do |f| %>
-  <%= f.input :name %>
-  <%= f.input :organization_name %>
+  <h4>Event Overview</h4>
+  <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :event_at, as: :datetime %>
+
+  <h4>Venue Details</h4>
   <%= f.input :venue_name %>
   <%= f.input :venue_address %>
-  <%= f.input :contact_information %>
-  <%= f.input :event_at, as: :datetime %>
+  <%= f.input :venue_url, as: :string %>
+
+  <h4>Sponsor Organization</h4>
+  <%= f.input :sponsor_name %>
+  <%= f.input :sponsor_url, as: :string %>
+  <%= f.input :contact_name %>
+  <%= f.input :contact_email, as: :string %>
+
+  <h4>Ticket Information</h4>
+  <%= f.input :tickets_price %>
+  <%= f.input :tickets_details %>
+  <%= f.input :tickets_url, as: :string %>
 
   <div>
     <%= f.submit nil, class: "btn btn-primary" %>

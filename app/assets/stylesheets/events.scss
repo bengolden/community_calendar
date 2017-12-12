@@ -3,6 +3,14 @@
     font-size: 20px;
   }
 
+  .modal-body{
+    div+h4{
+      border-top: 1px solid black;
+      margin-top: 15px;
+      padding-top: 15px;
+    }
+  }
+
   label{
     width: 100%;
     padding-top: 10px;
@@ -16,6 +24,13 @@
 
   .btn{
     margin-top: 20px;
+  }
+
+  .hint{
+    background-color: lightgray;
+    width: 100%;
+    display: block;
+    padding: 5px;
   }
 }
 
