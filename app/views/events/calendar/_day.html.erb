@@ -1,7 +1,9 @@
 <div class="day">
   <%= day.strftime("%-d") %>
+
   <div class="event-count">
-    <%= event_count(day) %>
+    <%= link_to event_count(day),
+                day_path(day.strftime("%Y%m%d")) unless event_count(day).nil? %>
   </div>
 </div>
 

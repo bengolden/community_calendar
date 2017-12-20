@@ -1,0 +1,28 @@
+<div class="event-details">
+  <h4><%= link_to event.title, event, class: "event-link" %></h4>
+  <%= render "events/show/event_detail", label: "Description", detail: event.description %>
+  <%= render "events/show/event_detail", label: "Date", detail: date_format(event.event_at) %>
+  <%= render "events/show/event_detail", label: "Start time", detail: time_format(event.event_at) %>
+
+  <% if show_venue_details?(event) %>
+    <h4>Venue Details</h4>
+  <% end %>
+  <%= render "events/show/event_detail", label: "Venue name", detail: event.venue_name %>
+  <%= render "events/show/event_detail", label: "Address", detail: event.venue_address %>
+  <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.venue_url) %>
+
+  <% if show_sponsor_details?(event) %>
+    <h4>Sponsor Organization</h4>
+  <% end %>
+  <%= render "events/show/event_detail", label: "Sponsor name",detail: event.sponsor_name %>
+  <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.sponsor_url) %>
+  <%= render "events/show/event_detail", label: "Contact name", detail: event.contact_name %>
+  <%= render "events/show/event_detail", label: "Email address", detail: event.contact_email %>
+
+  <% if show_ticket_details?(event) %>
+    <h4>Ticket Information</h4>
+  <% end %>
+  <%= render "events/show/event_detail", label: "Ticket price", detail: event.tickets_price %>
+  <%= render "events/show/event_detail", label: "Details", detail: event.tickets_details %>
+  <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.tickets_url) %>
+</div>
