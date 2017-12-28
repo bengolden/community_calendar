@@ -27,7 +27,7 @@ class Event < ApplicationRecord
   scope :starts_after, ->(datetime){ where("starts_at >= ?", datetime) }
 
   def self.event_dates
-    pluck(:starts_at).map(&:to_date)
+    pluck(:starts_at).map(&:to_date).uniq
   end
 
 end
