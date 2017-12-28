@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
   def configure_time(param)
     return if param.blank?
-    DateTime.strptime(param,"%m/%d/%Y %I:%M %p") + 6.hours
+    DateTime.strptime(param,"%m/%d/%Y %I:%M %p")
   end
 
   def event_params
