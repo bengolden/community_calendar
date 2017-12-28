@@ -2,7 +2,7 @@ class DaysController < ApplicationController
 
   def show
     datetime = load_day(params[:id]) 
-    @events = Event.where("event_at between ? AND ?", datetime.beginning_of_day, datetime.end_of_day).order(event_at: :asc)
+    @events = Event.where("starts_at between ? AND ?", datetime.beginning_of_day, datetime.end_of_day).order(starts_at: :asc)
   end
 
   def load_day(id)

@@ -1,6 +1,6 @@
 <div class="date">
   <h4><%= date_format(event_date) %></h4>
   <ul>
-    <%= render collection: @events.for_date(event_date).order(event_at: :asc), partial: "events/sidebar/event" %>
+    <%= render collection: @events.for_date(event_date).order(starts_at: :asc), partial: "events/sidebar/event" %>
   </ul>
 </div>

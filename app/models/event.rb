@@ -5,7 +5,8 @@
 #  id              :integer          not null, primary key
 #  title           :string
 #  description     :text
-#  event_at        :datetime
+#  starts_at       :datetime
+#  ends_at         :datetime
 #  venue_name      :string
 #  venue_address   :string
 #  venue_url       :string
@@ -22,13 +23,11 @@
 
 class Event < ApplicationRecord
 
-  scope :for_date, ->(date){ where("DATE(event_at) = ?", date)}
-  scope :starts_after, ->(datetime){ where("event_at >= ?", datetime) }
-
-  after_initialize -> { self.event_at ||= 1.day.from_now.beginning_of_day + 19.hours }
+  scope :for_date, ->(date){ where("DATE(starts_at) = ?", date)}
+  scope :starts_after, ->(datetime){ where("starts_at >= ?", datetime) }
 
   def self.event_dates
-    pluck("DATE(event_at)").uniq.sort
+    pluck("DATE(starts_at)").uniq.sort
   end
 
 end
