@@ -27,7 +27,7 @@ module EventsHelper
   end
 
   def event_count(day)
-    count = @events.where("starts_at BETWEEN ? AND ?", day.beginning_of_day, day.end_of_day).count
+    count = @events.pluck(:starts_at).map(&:to_date).select{ |date| date == day.to_date }.count
     return if count.zero?
     pluralize(count, "event")
   end

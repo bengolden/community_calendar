@@ -23,11 +23,11 @@
 
 class Event < ApplicationRecord
 
-  scope :for_date, ->(date){ where("DATE(starts_at) = ?", date)}
+  scope :for_date, ->(date){ where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
   scope :starts_after, ->(datetime){ where("starts_at >= ?", datetime) }
 
   def self.event_dates
-    pluck("DATE(starts_at)").uniq.sort
+    pluck(:starts_at).map(&:to_date)
   end
 
 end
