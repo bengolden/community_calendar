@@ -44,4 +44,22 @@ module EventsHelper
     event.tickets_price.present? || event.tickets_details.present? || event.tickets_url.present?
   end
 
+  def google_calendar_link(event)
+    link = "http://www.google.com/calendar/event?action=TEMPLATE"
+    link += "&text=#{event.title}"
+    if event.starts_at? && event.ends_at?
+      link += "&dates=#{google_time(event.starts_at)}/#{google_time(event.ends_at)}"
+    elsif event.starts_at?
+      link += "&dates=#{google_time(event.starts_at)}/#{google_time(event.starts_at)}"
+    end
+    link += "&details=#{event.description}" if event.description?
+    link += "&location=#{event.venue_address}" if event.venue_address?
+    link += "&trp=false&sprop=&sprop=name:' target='_blank' rel='nofollow'"
+    link
+  end
+
+  def google_time(time)
+    time.in_time_zone("UTC").strftime("%Y%m%dT%H%M00Z")
+  end
+
 end

@@ -2,8 +2,9 @@
   <h4><%= link_to event.title, event, class: "event-link" %></h4>
   <%= render "events/show/event_detail", label: "Description", detail: event.description %>
   <%= render "events/show/event_detail", label: "Start Date", detail: date_format(event.starts_at) %>
-  <%= render "events/show/event_detail", label: "Start time", detail: time_format(event.starts_at) %>
-  <%= render "events/show/event_detail", label: "End time", detail: time_format(event.ends_at) %>
+  <%= render "events/show/event_detail", label: "Start Time", detail: time_format(event.starts_at) %>
+  <%= render "events/show/event_detail", label: "End Date", detail: date_format(event.ends_at) %>
+  <%= render "events/show/event_detail", label: "End Time", detail: time_format(event.ends_at) %>
 
   <% if show_venue_details?(event) %>
     <h4>Venue Details</h4>
@@ -26,4 +27,7 @@
   <%= render "events/show/event_detail", label: "Ticket price", detail: event.tickets_price %>
   <%= render "events/show/event_detail", label: "Details", detail: event.tickets_details %>
   <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.tickets_url) %>
+
+  <%= link_to "Add event to Google Calendar", google_calendar_link(event) %>
+
 </div>
