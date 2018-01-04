@@ -1,0 +1,12 @@
+<%= form_for(:admin, :url => session_path(:admin)) do |f| %>
+  
+  <div>
+    <label>Email</label>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <label>Password</label>
+    <%= f.password_field :password %>
+  </div>
+  <%= f.submit 'Sign in', class: "btn btn-primary" %>
+<% end %>

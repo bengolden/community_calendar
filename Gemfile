@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'rails_autolink'
 gem 'font-awesome-rails'
+gem 'devise'
 
 
 # Use Redis adapter to run Action Cable in production

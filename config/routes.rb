@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :events, only: [:index, :show, :create]
+  devise_for :admins
 
+  resources :events, only: [:index, :show, :create]
   resources :days, only: :show
+
+  resource :admin_dashboard, only: :show do
+    resources :events, only: [:index, :edit, :update, :delete]
+    resources :users, only: [:index, :edit, :update, :delete]
+    resource :site, only: [:edit, :update]
+  end
+
+
   root "events#index"
 end
