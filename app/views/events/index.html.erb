@@ -1,10 +1,10 @@
 <div class="well">
   <div class="row">
-    <%= link_to "New Event",
+    <%= link_to "Add New Event",
                   "#",
                   data: { toggle: "modal", target: "#new-event-modal" },
                   id: "new-event-button",
-                  class: "btn btn-primary" if can_add_new_events? %>
+                  class: "btn btn-danger" if can_add_new_events? %>
   </div>
   <div class="row">
     <%= render "calendar" if show_calendar? %>
