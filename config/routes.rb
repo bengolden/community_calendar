@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :create]
   resources :days, only: :show
 
-  resource :admin_dashboard, only: :show do
-    resources :events, only: [:index, :edit, :update, :delete]
+  resource :admin_dashboard, only: :show
+
+  namespace :admin_dashboard do
+    resources :events, only: [:index, :edit, :update, :delete], controller: 'events'
     resources :users, only: [:index, :edit, :update, :delete]
     resource :site, only: [:edit, :update]
   end
