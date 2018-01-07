@@ -1,0 +1,7 @@
+<tr>
+  <td><%= event&.title %></td>
+  <td><%= date_format(event.starts_at) %></td>
+  <td><%= time_format(event.starts_at) %></td>
+  <td><%= event&.sponsor_name %></td>
+  <td><%= link_to "Edit", edit_admin_dashboard_event_path(event), class: "btn btn-primary btn-sm" %></td>
+</tr>

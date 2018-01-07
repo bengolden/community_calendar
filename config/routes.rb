@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   devise_for :admins
 
-  resources :events, only: [:index, :show, :create]
+  resources :events, only: [:index, :show, :create, :update]
   resources :days, only: :show
 
   resource :admin_dashboard, only: :show
+  resource :admin_login, only: :show
 
   namespace :admin_dashboard do
     resources :events, only: [:index, :edit, :update, :delete], controller: 'events'
-    resources :users, only: [:index, :edit, :update, :delete]
-    resource :site, only: [:edit, :update]
+    resources :admins, only: [:index, :edit, :update, :delete], controller: 'admins'
+    resource :site, only: [:edit, :update], controller: 'site'
   end
+
 
 
   root "events#index"

@@ -17,6 +17,16 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def update
+    return redirect_to admin_login_path if !signed_in?
+    event = Event.find(params[:id])
+    event.starts_at = configure_time(event_params["starts_at"]) if event_params["starts_at"].present?
+    event.ends_at = configure_time(event_params["ends_at"]) if event_params["ends_at"].present?
+    event.assign_attributes(event_params)
+    event.save
+    redirect_to admin_dashboard_events_path
+  end
+
   private
 
   def configure_time(param)

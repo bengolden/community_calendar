@@ -46,7 +46,7 @@ module EventsHelper
 
   def google_calendar_link(event)
     link = "http://www.google.com/calendar/event?action=TEMPLATE"
-    link += "&text=#{event.title}"
+    link += "&text=#{event.title}" if event.title?
     if event.starts_at? && event.ends_at?
       link += "&dates=#{google_time(event.starts_at)}/#{google_time(event.ends_at)}"
     elsif event.starts_at?
