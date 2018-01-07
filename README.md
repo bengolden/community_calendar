@@ -8,11 +8,11 @@ This is Community Calendar Application for sharing events.
 To run locally:
 * Install Ruby
 * Install Ruby on Rails
-* In the console, clone this repository by typing git clone git@github.com:bengolden/community_calendar.git
-* In the console, run bin/bundle install
-* In the console, create and migrate the database by running bin/rake db:create and bin/rake db:migrate
-* In the console, start the server with bin/rails s
-* Visit localhost:3000 in any web browser
+* In the console, clone this repository by typing `git clone git@github.com:bengolden/community_calendar.git`
+* In the console, run `bin/bundle install`
+* In the console, create and migrate the database by running `bin/rake db:create and bin/rake db:migrate`
+* In the console, start the server with `bin/rails s`
+* Visit `localhost:3000` in any web browser
 
 Notes:
 * This is a prototype, with minimal test coverage
