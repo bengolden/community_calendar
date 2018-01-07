@@ -10,8 +10,8 @@ $(function () {
       defaultEndDate = null
     }
   }else {
-    defaultStartDate = moment().startOf('hour').add(4,'h');
-    defaultEndDate = moment().startOf('hour').add(5,'h');
+    defaultStartDate = moment().startOf('day').add(43,'h');
+    defaultEndDate = moment().startOf('day').add(44,'h');
   }
 
   iconSet = {
@@ -35,13 +35,15 @@ $(function () {
     $('#event_starts_at').data("DateTimePicker").date(moment(defaultStartDate));
   }
 
-  if ($('#event_end_at').length == 1){
+  if ($('#event_ends_at').length == 1){
     $('#event_ends_at').datetimepicker({
       sideBySide: true,
       icons: iconSet
     });
 
-    $('#event_ends_at').data("DateTimePicker").date(moment(defaultEndDate));
+    if (defaultEndDate != null){
+      $('#event_ends_at').data("DateTimePicker").date(moment(defaultEndDate));
+    }
   }
 
 });
