@@ -1,1 +1,18 @@
-_list.html.erb
+<h4>Site Administrators</h4>
+<table>
+  <tr>
+    <th>Email</th>
+    <th></th>
+  </tr>
+
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.email %></td>
+      <td>
+        <% if admin == current_admin %>
+          <%= link_to "Edit", edit_admin_dashboard_admin_path(current_admin), class: "btn btn-sm btn-primary" %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

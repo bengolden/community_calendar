@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin_dashboard do
     resources :events, only: [:index, :edit, :update, :delete], controller: 'events'
-    resources :admins, only: [:index, :edit, :update, :delete], controller: 'admins'
+    resources :admins, only: [:index, :new, :create, :edit, :update, :delete], controller: 'admins'
     resource :site, only: [:edit, :update], controller: 'site'
   end
 

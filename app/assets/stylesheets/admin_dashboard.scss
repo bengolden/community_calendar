@@ -1,4 +1,4 @@
-#dashboard-events table{
+.dashboard table{
   th, td{
     padding: 3px 6px;
   }
@@ -6,4 +6,8 @@
   tr:nth-child(even){
     background-color: #ddd;
   }
+}
+
+#dashboard-admins h4{
+  margin-top: 20px;
 }

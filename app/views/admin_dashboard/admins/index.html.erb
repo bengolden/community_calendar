@@ -1,2 +1,5 @@
-<%= render "admin_dashboards/nav_links" %>
-<%= render "list" %>
+<div id="dashboard-admins" class="dashboard">
+  <%= render "admin_dashboards/nav_links" %>
+  <%= link_to "New Admin", new_admin_dashboard_admin_path, class: "btn btn-sm btn-danger" %>
+  <%= render "list" %>
+</div>
