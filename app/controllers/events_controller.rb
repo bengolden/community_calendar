@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    @events = Event.starts_after(Time.now)
+    @events = Event.starts_after(Time.now).order(starts_at: :asc)
   end
 
   def show

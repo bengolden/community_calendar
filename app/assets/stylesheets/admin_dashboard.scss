@@ -1,5 +1,9 @@
 #dashboard-events table{
-  th + th, td + td{
-    padding-left: 12px;
+  th, td{
+    padding: 3px 6px;
+  }
+
+  tr:nth-child(even){
+    background-color: #ddd;
   }
 }
