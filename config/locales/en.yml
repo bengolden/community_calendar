@@ -23,4 +23,4 @@ en:
   simple_form:
     hints:
       defaults:
-        tickets_price: Leave blank if tickets are free. You can also list a price range, eg $15-$25
+        tickets_price: "Leave blank if tickets are free. You can also list a price range, eg $15-$25"

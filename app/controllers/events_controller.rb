@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @event = Event.new
-    @events = Event.starts_after(Time.now).order(starts_at: :asc)
+    @events = Event.starts_after(Time.now).not_deleted.order(starts_at: :asc)
   end
 
   def show
@@ -19,11 +19,11 @@ class EventsController < ApplicationController
 
   def update
     return redirect_to admin_login_path if !signed_in?
-    event = Event.find(params[:id])
-    event.assign_attributes(event_params)
-    event.starts_at = configure_time(event_params["starts_at"]) if event_params["starts_at"].present?
-    event.ends_at = configure_time(event_params["ends_at"]) if event_params["ends_at"].present?
-    event.save
+    @event = Event.find(params[:id])
+    @event.assign_attributes(event_params)
+    @event.starts_at = configure_time(event_params["starts_at"]) if event_params["starts_at"].present?
+    @event.ends_at = configure_time(event_params["ends_at"]) if event_params["ends_at"].present?
+    @event.save
     redirect_to admin_dashboard_events_path
   end
 
@@ -39,6 +39,7 @@ class EventsController < ApplicationController
       :title, :description, :starts_at, :ends_at, :venue_name, :venue_address, :venue_url,
       :sponsor_name, :sponsor_url, :tickets_price, :tickets_details, :tickets_url, :contact_name, :contact_details
     ]
+    fields += [:deleted] if @event.deleted? && signed_in?
     params.require(:event).permit(fields)
   end
 

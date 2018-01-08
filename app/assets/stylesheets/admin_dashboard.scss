@@ -6,8 +6,24 @@
   tr:nth-child(even){
     background-color: #ddd;
   }
+
+  tr.deleted{
+    text-decoration: line-through;
+  }
 }
 
 #dashboard-admins h4{
   margin-top: 20px;
+}
+
+.site-form, .admin-form{
+  .input {
+    input, textarea{
+      width: 100%;
+    }
+  }
+
+  .btn-submit{
+    margin-top: 15px;
+  }
 }

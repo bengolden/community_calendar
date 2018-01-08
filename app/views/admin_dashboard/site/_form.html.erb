@@ -1,1 +1,6 @@
-_form.html.erb
+<div class="site-form">
+  <%= simple_form_for @site, url: @site.persisted? ? admin_dashboard_site_path : admin_dashboard_sites_path do |f| %>
+    <%= f.input :name %>
+    <%= f.submit nil, class: "btn btn-primary btn-submit" %>
+  <% end %>
+</div>

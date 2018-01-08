@@ -16,12 +16,22 @@
   label{
     width: 100%;
     padding-top: 10px;
+
+    &.boolean{
+      width: auto;
+      padding-left: 5px;
+    }
   }
 
   .input{
     input, textarea{
       width: 100%;
+
+      &.boolean{
+        width: auto;
+      }
     }
+
   }
 
   .btn{

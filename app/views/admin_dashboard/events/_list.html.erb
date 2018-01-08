@@ -7,6 +7,7 @@
     <th>Sponsor</th>
     <th>Contact person</th>
     <th></th>
+    <th></th>
   </tr>
   <%= render partial: "event", collection: @events.order("lower(title) ASC, starts_at ASC") %>
 </table>

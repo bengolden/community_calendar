@@ -1,5 +1,7 @@
-<%= simple_form_for @admin, url: @admin.persisted? ? admin_dashboard_admin_path : admin_dashboard_admins_path do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.submit nil, class: "btn btn-primary" %>
-<% end %>
+<div class="admin-form">
+  <%= simple_form_for @admin, url: @admin.persisted? ? admin_dashboard_admin_path : admin_dashboard_admins_path do |f| %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.submit nil, class: "btn btn-primary btn-submit" %>
+  <% end %>
+</div>

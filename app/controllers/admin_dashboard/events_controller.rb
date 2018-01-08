@@ -4,11 +4,16 @@ module AdminDashboard
     before_action ->{ redirect_to admin_login_path if !signed_in? }
 
     def index
-      @events = Event.all
+      @events = Event.order("deleted ASC NULLS FIRST")
     end
 
     def edit
       @event = Event.find(params[:id])
+    end
+
+    def destroy
+      Event.find(params[:id]).update(deleted: true)
+      redirect_to admin_dashboard_events_path
     end
 
     private
