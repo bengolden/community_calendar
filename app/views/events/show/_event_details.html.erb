@@ -29,5 +29,8 @@
   <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.tickets_url) %>
 
   <%= link_to "Add event to Google Calendar", google_calendar_link(event) %>
+  <div>
+    <%= render "shared/social_links" %>
+  </div>
 
 </div>

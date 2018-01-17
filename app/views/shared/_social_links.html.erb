@@ -1,0 +1,13 @@
+<span class="social-shares">
+  <%= link_to "http://www.facebook.com/share.php?u=#{request.original_url}" do %>
+    <i class="fa fa-facebook-official"></i>
+  <% end %>
+
+  <%= link_to "http://twitter.com/home?status=#{request.original_url}" do %>
+    <i class="fa fa-twitter-square"></i>
+  <% end %>
+
+  <%= link_to "https://www.linkedin.com/shareArticle?mini=true&url=#{request.original_url}" do %>
+    <i class="fa fa-linkedin-square"></i>
+  <% end %>
+</span>
