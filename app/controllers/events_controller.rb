@@ -40,6 +40,7 @@ class EventsController < ApplicationController
       :sponsor_name, :sponsor_url, :tickets_price, :tickets_details, :tickets_url, :contact_name, :contact_details
     ]
     fields += [:deleted] if @event&.deleted? && signed_in?
+    fields += [:recurring, :recurring_duration] if @event.nil?
     params.require(:event).permit(fields)
   end
 

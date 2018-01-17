@@ -46,5 +46,9 @@ $(function () {
     }
   }
 
+  $("#event_recurring").click(function(){
+    $(".recurring-fields").toggleClass('hide');
+  })
+
 });
 
