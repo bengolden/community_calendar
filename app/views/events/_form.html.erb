@@ -10,7 +10,7 @@
     <label>End time</label>
     <%= f.text_field :ends_at, data: { provide:'datepicker' } %>
 
-    <% if @event.new_record? %>
+    <% if @event&.new_record? %>
       <div class="recurring-checkbox">
         <strong>Recurring event</strong>
         <%= f.check_box "recurring" %>
