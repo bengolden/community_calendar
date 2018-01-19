@@ -3,7 +3,7 @@ class MyCreatedEventsController < ApplicationController
   before_action ->{ redirect_to root_path if my_created_events.nil? }
 
   def index
-    @events = Event.where(id: session[:my_created_events]).order("deleted ASC NULLS FIRST")
+    @events = Event.where(id: session[:my_created_events]).order("deleted ASC NULLS FIRST, starts_at")
   end
 
   def edit

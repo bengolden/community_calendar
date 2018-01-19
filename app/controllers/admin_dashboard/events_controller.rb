@@ -4,7 +4,7 @@ module AdminDashboard
     before_action ->{ redirect_to admin_login_path if !signed_in? }
 
     def index
-      @events = Event.order("deleted ASC NULLS FIRST")
+      @events = Event.order("deleted ASC NULLS FIRST, starts_at")
     end
 
     def edit
