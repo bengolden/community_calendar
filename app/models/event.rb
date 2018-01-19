@@ -23,6 +23,7 @@
 #  recurring           :boolean
 #  recurring_duration  :string
 #  recurring_source_id :integer
+#  facebook_url        :string
 #
 
 class Event < ApplicationRecord

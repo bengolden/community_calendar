@@ -40,7 +40,7 @@ class EventsController < ApplicationController
 
   def event_params
     fields = [
-      :title, :description, :starts_at, :ends_at, :venue_name, :venue_address, :venue_url,
+      :title, :description, :starts_at, :ends_at, :venue_name, :venue_address, :venue_url, :facebook_url,
       :sponsor_name, :sponsor_url, :tickets_price, :tickets_details, :tickets_url, :contact_name, :contact_details
     ]
     fields += [:deleted] if @event&.deleted? && signed_in?

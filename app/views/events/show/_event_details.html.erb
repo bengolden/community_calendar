@@ -1,6 +1,7 @@
 <div class="event-details">
   <h4><%= link_to event&.title, event, class: "event-link" %></h4>
   <%= render "events/show/event_detail", label: "Description", detail: event.description %>
+  <%= render "events/show/event_detail", label: "Facebook event", detail: auto_link(event.facebook_url) %>
   <%= render "events/show/event_detail", label: "Start Date", detail: date_format(event.starts_at) %>
   <%= render "events/show/event_detail", label: "Start Time", detail: time_format(event.starts_at) %>
   <%= render "events/show/event_detail", label: "End Date", detail: date_format(event.ends_at) %>
