@@ -24,18 +24,18 @@
     <h4>Venue Details</h4>
     <%= f.input :venue_name %>
     <%= f.input :venue_address %>
-    <%= f.input :venue_url, as: :string %>
+    <%= f.input :venue_url, as: :string, label: 'Venue website' %>
 
-    <h4>Sponsor Organization</h4>
-    <%= f.input :sponsor_name %>
-    <%= f.input :sponsor_url, as: :string %>
-    <%= f.input :contact_name %>
+    <h4>Sponsor</h4>
+    <%= f.input :contact_name, label: 'Contact person' %>
     <%= f.input :contact_email, as: :string %>
+    <%= f.input :sponsor_name, label: 'Sponsor organization' %>
+    <%= f.input :sponsor_url, as: :string, label: 'Sponsor organization website' %>
 
     <h4>Ticket Information</h4>
     <%= f.input :tickets_price %>
     <%= f.input :tickets_details %>
-    <%= f.input :tickets_url, as: :string %>
+    <%= f.input :tickets_url, as: :string, label: 'Tickets website' %>
 
     <div>
       <%= f.submit nil, class: "btn btn-primary" %>

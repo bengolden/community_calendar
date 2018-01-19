@@ -16,10 +16,10 @@
   <% if show_sponsor_details?(event) %>
     <h4>Sponsor Organization</h4>
   <% end %>
-  <%= render "events/show/event_detail", label: "Sponsor name",detail: event.sponsor_name %>
-  <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.sponsor_url) %>
-  <%= render "events/show/event_detail", label: "Contact name", detail: event.contact_name %>
-  <%= render "events/show/event_detail", label: "Email address", detail: event.contact_email %>
+  <%= render "events/show/event_detail", label: "Contact person", detail: event.contact_name %>
+  <%= render "events/show/event_detail", label: "Contact email", detail: event.contact_email %>
+  <%= render "events/show/event_detail", label: "Sponsor organization",detail: event.sponsor_name %>
+  <%= render "events/show/event_detail", label: "Sponsor website", detail: auto_link(event.sponsor_url) %>
 
   <% if show_ticket_details?(event) %>
     <h4>Ticket Information</h4>
