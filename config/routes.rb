@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :admins
 
   resources :events, only: [:index, :show, :create, :update]
+  resources :my_created_events, only: [:index, :edit, :update, :destroy]
+
   resources :days, only: :show
 
   resource :admin_dashboard, only: :show
@@ -12,8 +14,6 @@ Rails.application.routes.draw do
     resources :admins, only: [:index, :new, :create, :edit, :update, :destroy], controller: 'admins'
     resource :site, only: [:edit, :update], controller: 'site'
   end
-
-
 
   root "events#index"
 end

@@ -2,10 +2,16 @@
   <div class="row">
     <div class="col-md-2">
       <%= link_to "Add New Event",
-                    "#",
-                    data: { toggle: "modal", target: "#new-event-modal" },
-                    id: "new-event-button",
-                    class: "btn btn-danger" if can_add_new_events? %>
+                  "#",
+                  data: { toggle: "modal", target: "#new-event-modal" },
+                  id: "new-event-button",
+                  class: "btn btn-danger" if can_add_new_events? %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to "Manage my events",
+                  my_created_events_path,
+                  id: "manage-events-button",
+                  class: "btn btn-primary" if can_manage_events? %>
     </div>
 
     <div class="col-md-4 pull-right">

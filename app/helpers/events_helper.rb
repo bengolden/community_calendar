@@ -3,6 +3,10 @@ module EventsHelper
   def show_sidebar?; true; end
   def show_calendar?; true; end
 
+  def can_manage_events?
+    my_created_events.present?
+  end
+
   def weeks_remaining_in_month(time)
     times = []
     advanced_time = time

@@ -2,26 +2,27 @@
 #
 # Table name: events
 #
-#  id                 :integer          not null, primary key
-#  title              :string
-#  description        :text
-#  starts_at          :datetime
-#  ends_at            :datetime
-#  venue_name         :string
-#  venue_address      :string
-#  venue_url          :string
-#  sponsor_name       :string
-#  sponsor_url        :string
-#  contact_name       :string
-#  contact_email      :string
-#  tickets_price      :string
-#  tickets_details    :string
-#  tickets_url        :string
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  deleted            :boolean
-#  recurring          :boolean
-#  recurring_duration :string
+#  id                  :integer          not null, primary key
+#  title               :string
+#  description         :text
+#  starts_at           :datetime
+#  ends_at             :datetime
+#  venue_name          :string
+#  venue_address       :string
+#  venue_url           :string
+#  sponsor_name        :string
+#  sponsor_url         :string
+#  contact_name        :string
+#  contact_email       :string
+#  tickets_price       :string
+#  tickets_details     :string
+#  tickets_url         :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  deleted             :boolean
+#  recurring           :boolean
+#  recurring_duration  :string
+#  recurring_source_id :integer
 #
 
 class Event < ApplicationRecord
@@ -31,6 +32,7 @@ class Event < ApplicationRecord
   scope :not_deleted, ->{ where("deleted IS NULL OR deleted = ?", false)}
 
   after_create :create_future_recurring_events!, if: :recurring?
+  has_many :event_recursions, class_name: "Event", foreign_key: "recurring_source_id"
 
   def self.event_dates
     pluck(:starts_at).map(&:to_date).uniq
@@ -50,7 +52,7 @@ class Event < ApplicationRecord
       break if new_start_time.beginning_of_month >= Time.now.beginning_of_month + 3.months
 
       attrs = attributes.except("recurring", "recurring_duration", "starts_at", "ends_at", "id")
-      attrs.merge!({starts_at: new_start_time, ends_at: new_end_time})
+      attrs.merge!(starts_at: new_start_time, ends_at: new_end_time, recurring_source_id: id)
       Event.create(attrs)
     end
   end

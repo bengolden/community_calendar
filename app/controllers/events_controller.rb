@@ -14,6 +14,10 @@ class EventsController < ApplicationController
     event.starts_at = configure_time(event_params["starts_at"])
     event.ends_at = configure_time(event_params["ends_at"])
     event.save
+    session[:my_created_events] ||= []
+    session[:my_created_events] << event.id
+    session[:my_created_events] += event.event_recursions.pluck(:id) if event.recurring?
+
     redirect_to events_path
   end
 
@@ -24,7 +28,7 @@ class EventsController < ApplicationController
     @event.starts_at = configure_time(event_params["starts_at"]) if event_params["starts_at"].present?
     @event.ends_at = configure_time(event_params["ends_at"]) if event_params["ends_at"].present?
     @event.save
-    redirect_to admin_dashboard_events_path
+    redirect_to update_redirect_path
   end
 
   private
@@ -42,6 +46,14 @@ class EventsController < ApplicationController
     fields += [:deleted] if @event&.deleted? && signed_in?
     fields += [:recurring, :recurring_duration] if @event.nil?
     params.require(:event).permit(fields)
+  end
+
+  def update_redirect_path
+    if request.referrer.include?("admin_dashboard") && signed_in?
+      admin_dashboard_events_path
+    else
+      my_created_events_path
+    end
   end
 
 end
