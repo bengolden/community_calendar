@@ -11,5 +11,6 @@
   <body>
     <%= render "layouts/navbar" %>
     <%= yield %>
+    <%= render "subscriptions/new_subscription_modal" if can_subscribe_to_reminder_emails? %>
   </body>
 </html>

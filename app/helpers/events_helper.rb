@@ -1,5 +1,6 @@
 module EventsHelper
   def can_add_new_events?; true; end
+  def can_subscribe_to_reminder_emails?; true; end
   def show_sidebar?; true; end
   def show_calendar?; true; end
 

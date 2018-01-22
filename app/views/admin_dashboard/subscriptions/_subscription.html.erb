@@ -1,0 +1,14 @@
+<tr>
+  <td><%= subscription&.email %></td>
+  <td><%= subscription&.duration %></td>
+  <td><%= date_format(subscription.created_at) %></td>
+  <td><%= link_to "Edit",
+                  edit_admin_dashboard_subscription_path(subscription),
+                  class: "btn btn-primary btn-sm" %></td>
+  <td>
+    <%= button_to "Delete",
+                  admin_dashboard_subscription_path(subscription),
+                  method: :delete,
+                  class: "btn btn-danger btn-sm" %>
+  </td>
+</tr>

@@ -3,5 +3,10 @@
     <%= link_to Site.first&.name, root_url %>
   </div>
   <div class="col-md-4" id="nav-links">
+    <%= link_to reminders_button_text,
+            "#",
+            data: { toggle: "modal", target: "#new-subscription-modal" },
+            id: "new-event-button",
+            class: "btn btn-info" if can_subscribe_to_reminder_emails? %>
   </div>
 </div>
