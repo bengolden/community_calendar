@@ -33,7 +33,7 @@ module EventsHelper
   def event_count(day)
     count = @events.pluck(:starts_at).map(&:to_date).select{ |date| date == day.to_date }.count
     return if count.zero?
-    pluralize(count, "event")
+    "#{count} <span class='events-text'>event#{'s' unless count == 1}</span>".html_safe
   end
 
   def show_venue_details?(event)
@@ -64,6 +64,13 @@ module EventsHelper
 
   def google_time(time)
     time.in_time_zone("UTC").strftime("%Y%m%dT%H%M00Z")
+  end
+
+  def day_of_week_heading(day)
+    initial = day.first
+    day_short = day[1..2]
+    day_long = day[3..-1]
+    "<div class='day-of-week'><span class='day-initial'>#{initial}</span><span class='day-short'>#{day_short}</span><span class='day-end'>#{day_long}</span></div>".html_safe
   end
 
 end

@@ -13,6 +13,12 @@
       padding-top: 20px;
       text-align: center;
     }
+
+    @media (max-width: 620px) {
+      .events-text{
+        display: none;
+      }
+    }
   }
 
   .day-of-week{
@@ -21,6 +27,19 @@
     font-weight: bold;
     float: left;
     text-align: center;
+
+    @media (max-width: 768px) {
+      .day-end{
+        display: none;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .day-short{
+        display: none;
+      }
+    }
+
   }
 
   .invalid-day{
