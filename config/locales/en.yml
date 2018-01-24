@@ -24,3 +24,4 @@ en:
     hints:
       defaults:
         tickets_price: "Leave blank if tickets are free. You can also list a price range, eg $15-$25"
+        facebook_url: "Remember to set the Facebook event to public, so visitors will be able to see the event"

@@ -1,26 +1,6 @@
 <div class="well">
   <div class="row">
-    <div class="col-md-8">
-      <%= link_to "Add New Event",
-                  "#",
-                  data: { toggle: "modal", target: "#new-event-modal" },
-                  id: "new-event-button",
-                  class: "btn btn-danger" if can_add_new_events? %>
-      <%= link_to "Manage My Events",
-                  my_created_events_path,
-                  id: "manage-events-button",
-                  class: "btn btn-primary" if can_manage_events? %>
-    </div>
-
-    <div class="col-md-4 pull-right">
-      <%= render "shared/social_links" %>
-    </div>
-
-  </div>
-  <div class="row">
     <%= render "calendar" if show_calendar? %>
     <%= render "sidebar" if show_sidebar? %>
   </div>
 </div>
-
-<%= render "new_event_modal" if can_add_new_events? %>

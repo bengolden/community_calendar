@@ -1,17 +1,17 @@
 <div class="event-form">
-  <%= simple_form_for @event do |f| %>
+  <%= simple_form_for form_event do |f| %>
     <h4>Event Overview</h4>
     <%= f.input :title %>
     <%= f.input :description %>
     <%= f.input :facebook_url, as: :string, label: 'Facebook event link' %>
-    <%= f.input :deleted if @event.deleted? %>
-    <%= content_tag :div, nil, id: "default_times", data: { starts_at: @event.starts_at, ends_at: @event.ends_at } %>
+    <%= f.input :deleted if form_event.deleted? %>
+    <%= content_tag :div, nil, id: "default_times", data: { starts_at: form_event.starts_at, ends_at: form_event.ends_at } %>
     <label>Start time</label>
     <%= f.text_field :starts_at, data: { provide:'datepicker' } %>
     <label>End time</label>
     <%= f.text_field :ends_at, data: { provide:'datepicker' } %>
 
-    <% if @event&.new_record? %>
+    <% if form_event.new_record? %>
       <div class="recurring-checkbox">
         <strong>Recurring event</strong>
         <%= f.check_box "recurring" %>
