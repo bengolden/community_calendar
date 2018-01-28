@@ -29,6 +29,7 @@
 class Event < ApplicationRecord
 
   scope :for_date, ->(date){ where("starts_at BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day)}
+  scope :for_week, ->(date){ where("starts_at BETWEEN ? AND ?", date.beginning_of_week, date.end_of_week)}
   scope :starts_after, ->(datetime){ where("starts_at >= ?", datetime) }
   scope :not_deleted, ->{ where("deleted IS NULL OR deleted = ?", false)}
 

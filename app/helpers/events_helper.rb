@@ -4,10 +4,6 @@ module EventsHelper
   def show_sidebar?; true; end
   def show_calendar?; true; end
 
-  def form_event
-    @event || Event.new
-  end
-
   def can_manage_events?
     my_created_events.present?
   end

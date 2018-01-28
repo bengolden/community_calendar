@@ -46,6 +46,26 @@ $(function () {
     }
   }
 
+  if ($('#new_event_starts_at').length == 1){
+    $('#new_event_starts_at').datetimepicker({
+      sideBySide: true,
+      icons: iconSet
+    });
+
+    $('#new_event_starts_at').data("DateTimePicker").date(moment(defaultStartDate));
+  }
+
+  if ($('#new_event_ends_at').length == 1){
+    $('#new_event_ends_at').datetimepicker({
+      sideBySide: true,
+      icons: iconSet
+    });
+
+    if (defaultEndDate != null){
+      $('#new_event_ends_at').data("DateTimePicker").date(moment(defaultEndDate));
+    }
+  }
+
   $("#event_recurring").click(function(){
     $(".recurring-fields").toggleClass('hide');
   })
