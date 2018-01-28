@@ -1,0 +1,7 @@
+Good Morning! Here are your <%= Site.first.name %> events for today:
+
+<% @events.each do |event| %>
+<%= event&.title %>: <%= event_url(event) %>
+<% end %>
+
+You can see all events here: <%= root_url %>

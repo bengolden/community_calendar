@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  email      :string
-#  duration   :integer
+#  duration   :integer          default("daily")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

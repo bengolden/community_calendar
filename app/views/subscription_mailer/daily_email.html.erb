@@ -1,0 +1,15 @@
+<div>
+  Good Morning! Here are your <%= Site.first.name %> events for today:
+</div>
+
+<ul>
+  <% @events.each do |event| %>
+    <li>
+      <%= link_to event&.title, event_url(event) %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  You can see all events <%= link_to "here" root_url %>
+</div>

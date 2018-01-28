@@ -13,7 +13,7 @@ module AdminDashboard
     private
 
     def site_params
-      params.require(:site).permit(:name)
+      params.require(:site).permit(:name, :support_email)
     end
 
   end
