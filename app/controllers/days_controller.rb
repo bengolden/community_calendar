@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
 
   def show
+    @shareable_page = true
     datetime = load_day(params[:id])
     @events = Event.where("starts_at between ? AND ?", datetime.beginning_of_day, datetime.end_of_day).order(starts_at: :asc)
   end

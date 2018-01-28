@@ -1,10 +1,12 @@
 class EventsController < ApplicationController
 
   def index
+    @shareable_page = true
     @events = Event.starts_after(Time.now).not_deleted.order(starts_at: :asc)
   end
 
   def show
+    @shareable_page = true
     @event = Event.find(params[:id])
   end
 
