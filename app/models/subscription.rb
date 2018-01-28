@@ -26,9 +26,11 @@ class Subscription < ApplicationRecord
   end
 
   def send_daily_email
+    SubscriptionMailer.daily_email(subscription.email).deliver_now
   end
 
   def send_weekly_email
+    SubscriptionMailer.weekly_email(subscription.email).deliver_now
   end
 
 end
