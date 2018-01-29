@@ -14,7 +14,7 @@ class Subscription < ApplicationRecord
   enum duration: [:daily, :weekly]
 
   def self.send_daily_emails
-    self.where(duration: :day).each do |subscription|
+    self.where(duration: :daily).each do |subscription|
       subscription.send_daily_email
     end
   end
