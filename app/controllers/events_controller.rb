@@ -24,6 +24,7 @@ class EventsController < ApplicationController
 
   def update
     return redirect_to admin_login_path unless signed_in? || session[:my_created_events].include?(params[:id].to_i)
+
     @event = Event.find(params[:id])
     @event.assign_attributes(event_params)
     @event.starts_at = configure_time(event_params["starts_at"]) if event_params["starts_at"].present?
