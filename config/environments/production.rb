@@ -17,10 +17,10 @@ Rails.application.configure do
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
-  config.action_mailer.default_url_options = { host: ENV['URL_HOST'] }
+  config.action_mailer.default_url_options = { :host => ENV['URL_HOST'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
     address: ENV['SMTP_ADDRESS'],
