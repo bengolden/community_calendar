@@ -3,7 +3,7 @@ class SubscriptionMailer < ApplicationMailer
   layout 'mailer'
 
   def daily_email(recipient)
-    @events = Event.not_deleted.for_day(Date.today)
+    @events = Event.not_deleted.for_date(Date.today)
     return if @events.empty?
     mail to: recipient
   end
