@@ -11,7 +11,7 @@ module EventsHelper
   def weeks_remaining_in_month(time)
     times = []
     advanced_time = time
-    until time.month != advanced_time.beginning_of_week(:sunday).month && times.length > 1
+    until time.month != advanced_time.beginning_of_week(:sunday).month && times.length >= 1
       beginning_of_week = advanced_time.beginning_of_week(:sunday)
       times << beginning_of_week
       advanced_time += 1.week
