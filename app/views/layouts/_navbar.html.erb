@@ -19,8 +19,11 @@
       <%= link_to reminders_button_text,
               "#",
               data: { toggle: "modal", target: "#new-subscription-modal" },
-              id: "new-event-button",
               class: "btn btn-info" if can_subscribe_to_reminder_emails? %>
+      <%= mail_to Site.first&.support_email,
+                  "Contact Support",
+                  class: "btn btn-success" %>
+
     </div>
 
     <div class="col-md-4 pull-right">
