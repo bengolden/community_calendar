@@ -15,7 +15,7 @@
   <%= render "events/show/event_detail", label: "Website", detail: auto_link(event.venue_url) %>
 
   <% if show_sponsor_details?(event) %>
-    <h4>Sponsor Organization</h4>
+    <h4>Sponsor</h4>
   <% end %>
   <%= render "events/show/event_detail", label: "Contact person", detail: event.contact_name %>
   <%= render "events/show/event_detail", label: "Contact email", detail: event.contact_email %>
