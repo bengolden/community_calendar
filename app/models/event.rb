@@ -34,6 +34,10 @@ class Event < ApplicationRecord
   scope :not_deleted, ->{ where("deleted IS NULL OR deleted = ?", false)}
 
   validates :title, presence: true
+  validates :title, length: { maximum: 150 }
+  validates :description, length: { maximum: 750 }
+  validates :starts_at, presence: true
+  validate :ends_after_start_time
 
   after_create :create_future_recurring_events!, if: :recurring?
   has_many :event_recursions, class_name: "Event", foreign_key: "recurring_source_id"
@@ -59,6 +63,11 @@ class Event < ApplicationRecord
       attrs.merge!(starts_at: new_start_time, ends_at: new_end_time, recurring_source_id: id)
       Event.create(attrs)
     end
+  end
+
+  def ends_after_start_time
+    return if ends_at.nil? || ends_at >= starts_at
+    raise "ends_at time must be after starts_at time"
   end
 
 end
