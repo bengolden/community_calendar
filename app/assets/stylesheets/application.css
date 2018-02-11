@@ -15,3 +15,8 @@
  *= require bootstrap.min
  *= require bootstrap-datetimepicker.min
  */
+
+.input abbr[title='required']{
+  border: none;
+  text-decoration: none
+}

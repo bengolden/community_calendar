@@ -33,6 +33,8 @@ class Event < ApplicationRecord
   scope :starts_after, ->(datetime){ where("starts_at >= ?", datetime) }
   scope :not_deleted, ->{ where("deleted IS NULL OR deleted = ?", false)}
 
+  validates :title, presence: true
+
   after_create :create_future_recurring_events!, if: :recurring?
   has_many :event_recursions, class_name: "Event", foreign_key: "recurring_source_id"
 

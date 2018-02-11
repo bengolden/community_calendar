@@ -12,6 +12,7 @@
 class Subscription < ApplicationRecord
 
   enum duration: [:daily, :weekly]
+  validates :email, presence: true
 
   def self.send_daily_emails
     self.where(duration: :daily).each do |subscription|
